@@ -153,14 +153,49 @@ CSV Header;
 
 **Film Table**
 ```SQL
-
+CREATE TABLE film(
+		 film_id int
+		,title varchar(100)                      
+		,description text                                                                                                                  
+		,release_year int
+		,language_id int
+		,rental_duration int
+		,rental_rate money
+		,film_length int
+		,replacement_cost money 
+		,rating varchar(10)
+		,special_features varchar(250)                                      
+		,last_update timestamp
+);
 ```
-
 
 ```SQL
-
+COPY film
+FROM 'C:\Users\akobe\OneDrive\Desktop\Lighthouse\After\SQL-book-learning\Data\film.csv'
+DELIMITER ','
+CSV Header;
 ```
 
+**Film_list Table**
+```SQL
+CREATE TABLE film_list(
+		 fid int
+		,title varchar(50)                     
+		,description text
+		,category varchar(20)
+		,price money
+		,film_length int 
+		,rating varchar(10)
+		,actors text
+);
+```
+
+```SQL
+COPY film_list
+FROM 'C:\Users\akobe\OneDrive\Desktop\Lighthouse\After\SQL-book-learning\Data\film_list.csv'
+DELIMITER ','
+CSV Header;
+```
 
 **Film_actor Table**
 ```SQL
