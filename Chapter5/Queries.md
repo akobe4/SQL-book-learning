@@ -111,5 +111,26 @@ WHERE a.district = 'California';
 Write a query that returns the title of every film in which an actor with the first name 'JOHN' appeared. 
 
 ```SQL
-
+SELECT f.title
+FROM film f
+INNER JOIN film_actor fa ON f.film_id = fa.film_id
+INNER JOIN actor a ON fa.actor_id = a.actor_id
+WHERE a.first_name = 'JOHN';
 ```
+
+
+![alt text](image-7.png)
+
+**Exercise 5-6**
+Construct a query that returns all addresses that are in the same city. You will need to join the address table to istself, and each row should contain two different addresses. 
+
+```SQL
+SELECT a1.address addr1
+	,a2.address addr2
+	,a1.city_id
+FROM address a1
+INNER JOIN address a2 ON a1.city_id = a2.city_id
+AND a1.address < a2.address;
+```
+
+![alt text](image-8.png)
